@@ -1,11 +1,11 @@
-🚀 NASA Space Apps Challenge 2026 — Roadmap del Proyecto
+ NASA Space Apps Challenge 2026 — Roadmap del Proyecto
 Reto elegido: Create Health Monitoring Software for Astronauts on Space Missions
 Participante: Individual (equipo de 1)
 Evento: Virtual Universal
 Hackathon: 14–15 de noviembre de 2026
 Entrega: Antes del 15 de noviembre, 11:59 PM (hora local del evento)
 
-🎯 1. Concepto del proyecto
+ 1. Concepto del proyecto
 Nombre tentativo: AstroVital — Panel de Automonitoreo de Salud para Astronautas
 
 Problema:
@@ -22,7 +22,7 @@ Muestra un estado general tipo semáforo
 
 Sugiere acciones concretas al astronauta
 
-🧩 2. Alcance mínimo viable (MVP) — lo que SÍ o SÍ va
+2. Alcance mínimo viable (MVP) — lo que SÍ o SÍ va
 Esto es lo que debe estar listo para que el proyecto sea válido y funcional.
 
 2.1 Indicadores monitoreados (5 mínimo)
@@ -75,10 +75,8 @@ Subir proyecto y formularios	1 h
 Total hackathon	~5.5 h
 Total general: ~16 horas de trabajo efectivo.
 
-🌟 4. Extras para destacar (si da tiempo)
-Estos son los diferenciadores que pueden hacer que el proyecto resalte entre los demás.
+4. Extras (si da tiempo)
 
-4.1 Nivel 1 — Fáciles y de alto impacto
 □ Modo "simulación de misión" (acelerar el tiempo para ver cómo evoluciona la salud)
 □ Exportar reporte PDF con resumen del estado del astronauta
 □ Multi-idioma (español / inglés)
@@ -108,34 +106,15 @@ astrovital/
 │   └── logo.png
 ├── requirements.txt
 └── README.md
-📅 6. Plan de trabajo sugerido
-Semana 1 (antes del hackathon)
-Definir indicadores y reglas
-
-Crear dataset simulado
-
-Armar estructura del repo
-
-Semana 2
-Dashboard funcional
-
-Lógica de semáforo y alertas
-
-Semana 3
-Gráficas históricas
-
-README y documentación
-
 Pruebas
 
 14–15 de noviembre
-Pulir, grabar video, subir
+Pulir, subir
 
 ✅ 7. Checklist final antes de entregar
 □ La app corre sin errores
 □ Los datos simulados se cargan correctamente
 □ El semáforo y las alertas funcionan
 □ El README explica el proyecto
-□ El video está grabado y subido
 □ El proyecto está subido a la plataforma
 □ Formulario de participante completado
