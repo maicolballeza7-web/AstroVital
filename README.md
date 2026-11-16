@@ -1,33 +1,28 @@
 # AstroVital
 
-**Astronaut Self-Health Monitoring System** para el reto NASA Space Apps:
+**Astronaut Self-Health Monitoring System** for the NASA Space Apps challenge:
 **Create Health Monitoring Software for Astronauts on Space Missions**.
 
-AstroVital es un prototipo de autoevaluación para misiones espaciales
-prolongadas. Ayuda a registrar indicadores, observar cambios personales y
-recibir orientación preventiva mediante el flujo:
+AstroVital is a self-assessment prototype designed for long-duration space missions. It helps users track health indicators, observe personal changes, and receive preventive guidance through the following workflow:
 
 **MONITOR → ANALYZE → UNDERSTAND → ACT**
 
-> AstroVital es una herramienta educativa con datos simulados y registros
-> introducidos por el usuario. No diagnostica, prescribe tratamientos ni
-> autoriza actividades críticas como una EVA.
+> AstroVital is an educational tool that uses both simulated data and user-entered records. It does not provide medical diagnoses, prescribe treatments, or authorize critical activities such as an EVA (Extravehicular Activity).
 
-## Funcionalidades
+## Features
 
-- Registro parcial de frecuencia cardíaca, presión arterial, temperatura,
-  glucosa, sueño, estrés, actividad física y estado de ánimo.
-- Validación de datos y detección de indicadores faltantes.
-- Persistencia local de evaluaciones del usuario en CSV.
-- Separación entre historial del usuario y datos simulados.
-- Línea base personal después de al menos tres evaluaciones guardadas.
-- Comparación transparente con la media individual.
-- Insights sobre desviaciones y tendencias recientes.
-- Human Health Map con cinco grupos de indicadores.
-- Gráficas independientes para unidades diferentes.
-- Mission Readiness experimental, sin valor de autorización médica.
+- Tracking of heart rate, blood pressure, temperature, glucose levels, sleep, stress, physical activity, and mood.
+- Data validation and detection of missing indicators.
+- Local storage of user assessments in CSV format.
+- Separation between user history and simulated data.
+- Establishment of a personal baseline after at least three saved assessments.
+- Transparent comparison against the individual’s own average.
+- Insights regarding recent deviations and trends.
+- "Human Health Map" featuring five categories of indicators.
+- Independent charts for different types of metrics.
+- Experimental "Mission Readiness" indicator (not intended for medical authorization).
 
-## Estructura
+## Structure
 
 ```text
 SPACE APP/
@@ -45,14 +40,12 @@ SPACE APP/
 └── .gitignore
 ```
 
-## Ejecutar localmente
+## Running Locally
 
-Requiere Python 3.11 o superior.
-
-### Windows PowerShell
+Requires Python 3.11 or higher. ### Windows PowerShell
 
 ```powershell
-git clone <URL_DEL_REPOSITORIO>
+git clone <REPOSITORY_URL>
 cd "SPACE APP"
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -61,59 +54,60 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-La aplicación estará disponible normalmente en
+The application will typically be available at
 `http://localhost:8501`.
 
-### Ejecutar sin activar el entorno
+### Running without activating the environment
 
 ```powershell
 .\.venv\Scripts\streamlit.exe run app.py
 ```
 
-## Publicar en Streamlit Community Cloud
+## Deploying to Streamlit Community Cloud
 
-1. Crea un repositorio público en GitHub.
-2. Sube `app.py`, `modules/`, `data/.gitkeep`, `requirements.txt`,
-   `README.md` y `.gitignore`.
-3. Entra en [share.streamlit.io](https://share.streamlit.io/).
-4. Selecciona el repositorio, la rama y el archivo `app.py`.
-5. Pulsa **Deploy**.
+1. Create a public repository on GitHub.
+2. Upload `app.py`, `modules/`, `data/.gitkeep`, `requirements.txt`,
+`README.md`, and `.gitignore`.
+3. Go to [share.streamlit.io](https://share.streamlit.io/).
+4. Select the repository, the branch, and the `app.py` file.
+5. Click **Deploy**.
 
-No es necesario configurar secretos ni variables de entorno para este MVP.
+No secrets or environment variables need to be configured for this MVP.
 
-### Persistencia en la nube
+### Cloud Persistence
 
-Las evaluaciones se guardan en `data/assessments.csv`. En Streamlit Community
-Cloud el almacenamiento local del contenedor no debe considerarse permanente:
-un reinicio o redeploy puede eliminar esos registros. Para una versión de
-producción se necesita una base de datos o almacenamiento persistente.
+Assessments are saved in `data/assessments.csv`. In Streamlit Community Cloud,
+local container storage should not be considered permanent: a restart or
+redeploy may erase these records. A production-ready version would require a
+database or persistent storage.
 
-## Datos y confiabilidad
+## Data and Reliability
 
-- Los datos generados con NumPy aparecen como **simulated**.
-- Los datos enviados desde el formulario aparecen como **user**.
-- No se presentan datos sintéticos como mediciones reales de astronautas.
-- La línea base requiere tres evaluaciones del usuario como mínimo.
-- Las reglas actuales son heurísticas de prototipo, no criterios clínicos
-  universales.
-- El Readiness Score es experimental y no determina aptitud para EVA.
+- Data generated using NumPy is labeled as **simulated**.
+- Data submitted via the form is labeled as **user**.
+- Synthetic data is not presented as actual measurements from astronauts.
+- Establishing a baseline requires a minimum of three user assessments.
+- Current rules are based on prototype heuristics, not universal clinical
+criteria.
+- The Readiness Score is experimental and does not determine fitness for EVA.
+- 
+## Use of Artificial Intelligence
+AI coding assistants were used to accelerate boilerplate code generation and documentation. The system architecture, medical logic, validation rules, and project design were developed by the author.
 
-La versión actual no integra datasets externos de NASA Human Research Program,
-Human Research Roadmap, OSDR o GeneLab. Esta limitación es intencional: no se
-atribuyen resultados científicos a fuentes que todavía no se han verificado o
-integrado.
+The current version does not integrate external datasets from the NASA Human
+Research Program, Human Research Roadmap, OSDR, or GeneLab. This limitation is intentional: scientific results are not attributed to sources that have not yet been verified or integrated.
 
-## Comprobación antes de publicar
+## Verification before publishing
 
 ```powershell
 python -m py_compile app.py modules\assessment.py modules\baseline.py modules\insights.py modules\persistence.py
 streamlit run app.py
 ```
 
-Verifica manualmente:
+Verify the following manually:
 
-- Que se pueda guardar una evaluación.
-- Que aparezca `data/assessments.csv` localmente.
-- Que los indicadores faltantes se muestren claramente.
-- Que la línea base indique cuándo aún no es confiable.
-- Que las gráficas se rendericen sin mezclar unidades.
+- That an assessment can be saved.
+- That `data/assessments.csv` appears locally.
+- That missing indicators are clearly displayed.
+- That the baseline indicates when it is not yet reliable.
+- That the charts render correctly without mixing units.
