@@ -1,0 +1,1 @@
+"""AstroVital domain modules."""
